@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// ============================================================
 // ROUTE PUBLIK (Tanpa Autentikasi)
-// ============================================================
 
 // Autentikasi
 Route::prefix('auth')->group(function () {
@@ -35,10 +33,7 @@ Route::get('/categories/{id}', [CategoryController::class, 'show']);
 Route::get('/products',      [ProductController::class, 'index']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
 
-// ============================================================
 // ROUTE TERPROTEKSI (Wajib Login dengan Sanctum)
-// ============================================================
-
 Route::middleware('auth:sanctum')->group(function () {
 
     // Autentikasi - profil & logout
